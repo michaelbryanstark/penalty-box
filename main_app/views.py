@@ -35,3 +35,24 @@ class PostCreate(CreateView):
     def get_success_url(self):
         print(self.kwargs)
         return reverse('post_detail', kwargs={'pk': self.object.pk})
+    
+class HockeyList(generic.ListView):
+    model = Post
+    template_name = 'hockey.html'
+    
+class BasketballList(generic.ListView):
+    model = Post
+    template_name = 'basketball.html'
+    
+class BaseballList(generic.ListView):
+    model = Post
+    template_name = 'baseball.html'
+    
+class FootballList(generic.ListView):
+    model = Post
+    template_name = 'football.html'
+    
+class SoccerList(generic.ListView):
+    model = Post
+    template_name = 'soccer.html'
+    

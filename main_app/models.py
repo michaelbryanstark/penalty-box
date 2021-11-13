@@ -7,6 +7,13 @@ STATUS = (
     (1,"Publish")
 )
 
+class Categories(models.TextChoices):
+    HOCKEY = 'hockey'
+    BASEBALL = 'baseball'
+    BASKETBALL = 'basketball'
+    FOOTBALL = 'football'
+    SOCCER = 'soccer'
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -15,6 +22,8 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    excerpt = models.CharField(max_length=150)
+    category = models.CharField(max_length=50, choices=Categories.choices, default=Categories.HOCKEY)
 
     class Meta:
         ordering = ['-created_on']

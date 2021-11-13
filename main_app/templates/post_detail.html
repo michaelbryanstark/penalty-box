@@ -12,14 +12,18 @@
     {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
   </div>
   {% if user.is_authenticated %}
-  <div class="icon">
-    <a href="{% url 'post_delete' post.pk %}" class=" is-danger">
-        <button class="btn btn-danger">Delete</button>
-      </div>
-      <div class="icon">
-        <a href="{% url 'post_edit' post.pk %}" class=" is-danger">
-            <button class="btn btn-primary">Edit Post</button>
-          </div>
+  <div class="button">
+    <div class="button2">
+      <a href="{% url 'post_edit' post.pk %}" class=" is-danger">
+          <button class="btn btn-primary">Edit Post</button>
+        </div>
+        <br>
+    <div class="button1">
+      <a href="{% url 'post_delete' post.pk %}" class=" is-danger">
+          <button class="btn btn-danger">Delete</button>
+        </div>
+  </div>
+  
   {% endif %}
 </div>
 
