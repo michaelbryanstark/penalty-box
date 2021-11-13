@@ -11,6 +11,7 @@
     </div>
     {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
   </div>
+  {% if user.is_authenticated %}
   <div class="icon">
     <a href="{% url 'post_delete' post.pk %}" class=" is-danger">
         <button class="btn btn-danger">Delete</button>
@@ -19,6 +20,7 @@
         <a href="{% url 'post_edit' post.pk %}" class=" is-danger">
             <button class="btn btn-primary">Edit Post</button>
           </div>
+  {% endif %}
 </div>
 
         
