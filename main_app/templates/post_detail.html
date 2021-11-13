@@ -11,14 +11,15 @@
     </div>
     {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
   </div>
+  <div class="icon">
+    <a href="{% url 'post_delete' post.pk %}" class=" is-danger">
+        <button class="btn btn-danger">Delete</button>
+      </div>
+      <div class="icon">
+        <a href="{% url 'post_edit' post.pk %}" class=" is-danger">
+            <button class="btn btn-primary">Edit Post</button>
+          </div>
 </div>
-<div class="icon">
-  <a href="{% url 'post_delete' post.pk %}" class=" is-danger">
-      <button class="button-delete">Delete</button>
-    </div>
-    <div class="icon">
-      <a href="{% url 'post_edit' post.pk %}" class=" is-danger">
-          <button class="button-delete">Edit Post</button>
-        </div>
-        <a class="new-post-btn" href="{% url 'post_create' %}"><button class="btn-new-post">+</button></a>
+
+        
 {% endblock content %}

@@ -44,6 +44,7 @@
                 </div>
             </div>
             {% endfor %}
+            <a href="{% url 'post_create' %}"><button class="btn btn-primary">Add a new post</button></a>
         </div>
         {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     </div>
