@@ -36,6 +36,10 @@ class PostCreate(CreateView):
         print(self.kwargs)
         return reverse('post_detail', kwargs={'pk': self.object.pk})
     
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+    return render(request, 'categories.html', {'cats': cats.title(), 'category_posts':category_posts})
+    
 class HockeyList(generic.ListView):
     model = Post
     template_name = 'hockey.html'

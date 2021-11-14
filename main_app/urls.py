@@ -1,5 +1,6 @@
-from . import views
+from . import views 
 from django.urls import path
+from .views import CategoryView
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
@@ -12,4 +13,5 @@ urlpatterns = [
     path('baseball/', views.BaseballList.as_view(), name='baseball'),
     path('football/', views.FootballList.as_view(), name='football'),
     path('soccer/', views.SoccerList.as_view(), name='soccer'),
+    path('category/<str:cats>/', CategoryView, name='category'),
 ]
