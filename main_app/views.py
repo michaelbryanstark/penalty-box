@@ -1,11 +1,19 @@
 from django.shortcuts import render, reverse
 from django.views import generic
-from .models import Post
+from .models import Post, Categories
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
 
 class PostList(generic.ListView):
+    model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
+    # cats = Categories.objects.all()
+    
+    # def get_context_data(self, *args, **kwargs):
+    #     cat_menu = Categories.objects.all()
+    #     context = super(PostList, self).get_context_data(*args, **kwargs)
+    #     context["cat_menu"] = cat_menu
+    #     return context
 
 class PostDetail(generic.DetailView):
     model = Post
