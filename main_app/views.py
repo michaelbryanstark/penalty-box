@@ -18,7 +18,7 @@ class PostDelete(DeleteView):
 
 class PostEdit(UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'category']
     template_name = 'post_edit.html'
     def get_success_url(self):
          print(self.kwargs)
@@ -26,7 +26,7 @@ class PostEdit(UpdateView):
      
 class PostCreate(CreateView):
     model = Post
-    fields = ['title', 'content', 'author', 'status', 'slug']
+    fields = ['title', 'content', 'author', 'status', 'slug', 'category']
     template_name = "post_create.html"
     def form_valid(self, form):
         form.instance.user = self.request.user
