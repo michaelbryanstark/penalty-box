@@ -1,19 +1,48 @@
 {% extends 'base.html' %} {% block content %}
-<div class="art-4">
-<br>
-<br>
-<br>
-<div class="post-create">
-    <form method="post">
+
+<style>
+    .form-size {
+        margin: auto;
+        border: 2px solid;
+        padding: 20px; 
+        width: 800px;
+        border-radius: 15px;
+        
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white"> The Penalty Box </h3>
+                    <p class="text-light">My opinion is better than yours.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </header>
+  <br>
+  <br>
+<div class="form-size">
+<form method="post">
+    <div class="form-group"></div>
     <h1 class='title'>Add a Post</h1>
         <!--Security Feature-->
         {% csrf_token %}
         <!-- Generate inputs-->
         {{form.as_p}}
         <!--Submit Form-->
-        <button class="new-post">Submit Post</button>
-    </form>
-</div>
-</div>
+        <button class="btn btn-primary">Submit Post</button>
+    </div> 
+    
+
+
+</form>
+</div>  
+
 
 {% endblock %}

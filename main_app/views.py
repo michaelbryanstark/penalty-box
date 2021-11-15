@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse
 from django.views import generic
 from .models import Post, Categories
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
+from .forms import PostForm
 
 class PostList(generic.ListView):
     model = Post
@@ -26,7 +27,8 @@ class PostDelete(DeleteView):
 
 class PostEdit(UpdateView):
     model = Post
-    fields = ['title', 'content', 'category']
+    form_class = PostForm
+    # fields = ['title', 'content', 'category']
     template_name = 'post_edit.html'
     def get_success_url(self):
          print(self.kwargs)
@@ -34,7 +36,8 @@ class PostEdit(UpdateView):
      
 class PostCreate(CreateView):
     model = Post
-    fields = ['title', 'content', 'author', 'status', 'slug', 'category']
+    form_class = PostForm
+    # fields = ['title', 'content', 'author', 'status', 'slug', 'category']
     template_name = "post_create.html"
     def form_valid(self, form):
         form.instance.user = self.request.user

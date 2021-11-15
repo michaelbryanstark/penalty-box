@@ -1,9 +1,34 @@
 {% extends 'base.html' %} {% block content %}
-<div class="art-5">
-<br>
-<br>
-<br>
-<div class="edit-profile-form">    
+<style>
+    .form-size {
+        margin: auto;
+        border: 2px solid;
+        padding: 20px; 
+        width: 800px;
+        border-radius: 15px;
+        
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white"> The Penalty Box </h3>
+                    <p class="text-light">My opinion is better than yours.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </header>
+  <br>
+  <br>
+<div class="form-size">
+
+    <div class="form-group"></div>   
 {%if user.is_authenticated %}
     <form method="post">
     <h1 class="title">Edit Post</h1>
