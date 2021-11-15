@@ -32,7 +32,8 @@
 {%if user.is_authenticated %}
     <form method="post">
     <h1 class="title">Edit Post</h1>
-        {% csrf_token %} 
+        {% csrf_token %}
+        {{form.media}} 
         {{ form.as_p }}
         <button class="btn btn-primary">Update Post</button>
     </form>
