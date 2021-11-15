@@ -1,10 +1,44 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1 class="title">Log In</h1>
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %} {{ form.as_p }}
-  <input type="submit" class="btn" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</form>
+<style>
+  .form-size {
+      margin: auto;
+      border: 2px solid #3398E1;
+      padding: 20px; 
+      width: 800px;
+      border-radius: 15px;
+      
+  }
+</style>
+
+<header class="masthead">
+  <div class="overlay"></div>
+  <div class="container">
+      <div class="row">
+          <div class=" col-md-8 col-md-10 mx-auto">
+              <div class="site-heading">
+                  <h3 class=" site-heading my-4 mt-3 text-white"> The Penalty Box </h3>
+                  <p class="text-light">My opinion is better than yours.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+<br>
+<br>
+<div class="form-size">
+  <form method="post">
+    <div class="form-group"></div>
+      {% csrf_token %}
+          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <label for="form.id_username" class="sr-only">Username</label>
+          <input type="text" id="form.id_username" class="form-control" name="{{ form.username.html_name}}" placeholder="Username" required autofocus>
+          <label for="form.id_password" class="sr-only">Password</label>
+          <input type="password" id="form.id_password" class="form-control" placeholder="Password" required name="{{ form.password.html_name}}">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+</div>
+  
 
 {% endblock %}

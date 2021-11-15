@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, User
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -14,3 +14,11 @@ class PostForm(forms.ModelForm):
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
         }
+        
+class UserForm(forms.ModelForm):
+  password = forms.CharField(widget=forms.PasswordInput)
+  username = forms.EmailField()
+
+  class Meta:
+    model = User
+    fields =['username','password']

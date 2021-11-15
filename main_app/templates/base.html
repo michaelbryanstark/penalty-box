@@ -38,51 +38,36 @@
             background-size: contain;
             background-repeat: no-repeat;
         }
-        #btn {
+        /* #btn {
             display:inline-block;
-        }
+        } */
     </style>
 
         <!-- Navigation -->
-        
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">The Penalty Box</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- <ul class="navbar-nav mr-auto">
-                      
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Categories
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                      </li>
-                      
-                    </ul> -->
 
-                    <!-- need to work on functionality for catagory links -->
-                
-                    {% if user.is_authenticated %}
-                    <ul class="navbar-nav ml-auto">
-                    <span class="nav-link text-black font-weight-bold">Welcome: {{user.username}}</span>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="{% url 'logout' %}">Logout</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item text-black">
-                           <a class="nav-link text-black font-weight-bold" href="{% url 'login' %}">Log In</a>
-                        </li>
-                    {% endif %}
-                    </ul>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'home' %}">The Penalty Box</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <span class="nav-link text-black font-weight-bold">Welcome: {{user.username}}</span>
+                <li class="nav-item">
+                  <a class="nav-link text-black font-weight-bold" href="{% url 'logout' %}">Logout </a>
+                </li>
+              </ul>
+              {% else %}
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link text-black font-weight-bold" href="{% url 'login' %}">Login</a>
+                </li>
+              </ul>
+                {% endif %}
             </div>
-        </nav>
+          </nav>
+
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
