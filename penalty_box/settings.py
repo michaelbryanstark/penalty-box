@@ -136,16 +136,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
-CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'Basic',
+        'width':'auto'
+    },
+    'default': {
+        'toolbar': 'full',
+        'width':'auto'
+    },
+}
 
 #config for differnt type of WYSIWYG functionalities
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': None,
-    },
- }
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
