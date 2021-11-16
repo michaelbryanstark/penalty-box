@@ -1,13 +1,32 @@
 {% extends 'base.html' %} {% block content %}
-<div class="art-6">
+<style>
+    .form-size {
+        margin: auto;
+        border: 2px solid #3398E1;
+        padding: 20px; 
+        width: 600px;
+        border-radius: 15px;
+    }
+
+    .form-group {
+        text-align: center;
+    }
+
+    .cancel {
+        text-align: center;
+    }
+    
+</style>
 <br>
 <br>
 <br>
-<div class="post-delete">
+<div class="form-size">
+
+   
     <form  method="post">
     <h1 class="Delete-title">Are you sure you want to delete the post titled "{{post.title}}"?</h1>
         {% csrf_token %}
-        
+        <div class="form-group">
                 <!--confirm post delete-->
                 <button class="btn btn-danger">Delete</button>
                 <!--redirect back to the post detail on cancel.  if this is a "button," it deletes the post regardless of whether it is cancelled or confirmed-->
@@ -15,12 +34,15 @@
                 <br>
                     
                 
-        </div>
         
-    </form>
-    <div class="card-header-title">
-        <a href="{% url 'post_detail' post.pk %}"><button class="btn btn-primary">Cancel</button></a> 
-
+        
+        </form>
+    </div>
+    <div class="cancel">
+        <a href="{% url 'post_detail' post.pk %}"><button class="btn btn-primary">Cancel</button></a>
+    </div>
+         
+    
 </div>
 
 {% endblock %}
