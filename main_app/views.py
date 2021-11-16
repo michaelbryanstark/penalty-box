@@ -1,8 +1,10 @@
-from django.shortcuts import render, reverse
-from django.views import generic
+from django.shortcuts import render, redirect, reverse
+from django.views import generic, View
+from django.contrib.auth import login
 from .models import Post, Categories
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
 from .forms import PostForm
+from django.contrib.auth.forms import UserCreationForm
 
 class PostList(generic.ListView):
     model = Post
@@ -51,23 +53,20 @@ def CategoryView(request, cats):
     category_posts = Post.objects.filter(category=cats)
     return render(request, 'categories.html', {'cats': cats.title(), 'category_posts':category_posts})
     
-class HockeyList(generic.ListView):
-    model = Post
-    template_name = 'hockey.html'
-    
-class BasketballList(generic.ListView):
-    model = Post
-    template_name = 'basketball.html'
-    
-class BaseballList(generic.ListView):
-    model = Post
-    template_name = 'baseball.html'
-    
-class FootballList(generic.ListView):
-    model = Post
-    template_name = 'football.html'
-    
-class SoccerList(generic.ListView):
-    model = Post
-    template_name = 'soccer.html'
+class Signup(View):
+    # show a form to fill out
+    def get(self, request):
+        form = UserCreationForm()
+        context = {"form": form}
+        return render(request, "registration/signup.html", context)
+    # on form submit validate the form and login the user.
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("/")
+        else:
+            context = {"form": form}
+            return render(request, "registration/signup.html", context)
     
