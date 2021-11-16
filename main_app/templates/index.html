@@ -50,7 +50,7 @@
                 </div>
             </div>
             {% endfor %}
-            {% if user.is_authenticated %}
+            {% if request.user.is_superuser %}
             <a href="{% url 'post_create' %}"><button class="btn btn-primary">Add a new post</button></a>
             {% endif %}
         </div>
