@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, reverse
+from django.urls import reverse_lazy
 from django.views import generic, View
 from django.contrib.auth import login
-from .models import Post, Categories
+from .models import Post, Comment, User
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
 from .forms import PostForm
 from django.contrib.auth.forms import UserCreationForm
@@ -70,3 +71,18 @@ class Signup(View):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
     
+class CommentCreate(View):
+
+    def post(self, request, pk):
+        post = Post.objects.get(pk=pk)
+        name = request.POST.get("name")
+        description = request.POST.get("description")
+        Comment.objects.create(post=post, name=name, description=description)
+        return redirect('post_detail', pk=pk)
+    # def post(self, request, pk):
+    #     name = request.POST.get("name")
+    #     body = request.POST.get("body")
+    #     post = Post.objects.get(pk=pk)
+    #     Comment.objects.create(name=name, body=body, post=post)
+    #     return redirect('post_detail', pk=pk)
+ 

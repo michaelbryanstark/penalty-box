@@ -25,11 +25,31 @@
         <br>
         <p class="card-text ">{{ object.content | safe }}</p>
       </div>
+      <hr>
+      <h2>Comments</h2>
+      
+      <form class="btn btn-primary" action="{% url 'comment_create' post.pk %}" method="post">
+        {% csrf_token %}
+        <input type="text" class="comment-section-input" name="name" placeholder="Name" required>
+        <input type="text" class="comment-section-input" name="description" placeholder="Your dumb comment" required>
+        <input class="comment-section-submit" type="submit" value="Post">
+      </form>
+      <!-- <a href="{% url 'comment_create' post.pk %}"><button class="btn btn-primary">Comment</button></a> -->
+      <br>
+      <br>
+          {% for comment in post.comment.all %}
+          <br>
+          <br>
+            {{ comment.name }}
+            {{ comment.description }} 
+            {% endfor %}
+  
+      <br>
     </div>
     {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
   </div>
   {% if request.user.is_superuser %}
-  <div class="button">
+
     <div class="button2">
       <a href="{% url 'post_edit' post.pk %}" class=" is-danger">
           <button class="btn btn-primary">Edit Post</button>
@@ -39,7 +59,7 @@
       <a href="{% url 'post_delete' post.pk %}" class=" is-danger">
           <button class="btn btn-danger">Delete</button>
         </div>
-  </div>
+ 
   
   {% endif %}
 </div>
