@@ -10,4 +10,5 @@ urlpatterns = [
     path('posts/new/', views.PostCreate.as_view(), name="post_create"),
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
     path('category/<str:cats>/', CategoryView, name='category'),
+    path('post/<int:pk>/comments/new', views.CommentCreate.as_view(), name="comment_create"),
 ]
