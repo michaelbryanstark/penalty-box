@@ -53,7 +53,9 @@
        
         {% csrf_token %}
         <input type="text" class="form-control" name="name" placeholder="Name" required>
+        <br>
         <input type="text" class="form-control" name="description" placeholder="Your dumb comment" required>
+        <br>
         <input class="comment-section-submit" type="submit" value="Post">
         
       </form>
@@ -78,6 +80,7 @@
   
       <br>
     </div>
+    <br>
     {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
   </div>
   {% if request.user.is_superuser %}
