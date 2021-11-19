@@ -3,6 +3,9 @@
 The Penalty Box is a blog built using Python and the Django Framework! I am the author of the site and am able to create, post, and eedit my own blogs. Currently under construction is the ability for visitors of the site to create a profile. In the future there will also be a store in which visitors will be able to purchase merch! You can visit the site here...
 [The Penalty Box](https://penalty-box.herokuapp.com/)
 
+The Wireframes, Models, User Stories, and User flow can all be accessed here...
+[Penalty Box Designs](https://drive.google.com/drive/folders/1dd_nKSzl2Ov_4JQ8cn7h32e97eSosGu_?usp=sharing)
+
 ## Installation
 To use this template to start your own project:
 
@@ -12,7 +15,33 @@ If your project is already in an existing python3 virtualenv first install djang
 
     $ pip install django
     
-And then run the `django-admin.py` command to start the new project:
+And then run the `django-admin.py` command to start the new project.
+
+After that just install the local dependencies, run migrations, and start the server.
+
+
+# Getting Started
+
+First clone the repository from Github and switch to the new directory:
+
+    $ git clone https://github.com/michaelbryanstark/penalty-box.git
+    $ cd {{ project_name }}
+    
+Activate the virtualenv for your project.
+    
+Install project dependencies:
+
+    $ pip install -r requirements.txt
+    
+    
+Then simply apply the migrations:
+
+    $ python manage.py migrate
+    
+
+You can now run the development server:
+
+    $ python manage.py runserver
 
 ## Technologies Used
 - Python
