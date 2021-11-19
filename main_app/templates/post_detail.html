@@ -69,7 +69,7 @@
     {% endif %}
     <h2>Comments</h2>
           {% for comment in post.comment.all %}
-          <br>
+      
           
           <div class="comment-box">
             Name: {{ comment.name }}
@@ -78,7 +78,7 @@
               Comment: {{ comment.description }} 
             </div>
           </div>
-          <br>
+        
           {% empty %}
           <p>No Comments yet...</p>
             {% endfor %}
