@@ -17,10 +17,8 @@ If your project is already in an existing python3 virtualenv first install djang
     
 And then run the `django-admin.py` command to start the new project.
 
-After that just install the local dependencies, run migrations, and start the server.
 
-
-# Getting Started
+## Getting Started
 
 First clone the repository from Github and switch to the new directory:
 
