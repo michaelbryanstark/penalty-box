@@ -11,4 +11,9 @@ urlpatterns = [
     path('accounts/signup/', views.Signup.as_view(), name="signup"),
     path('category/<str:cats>/', CategoryView, name='category'),
     path('post/<int:pk>/comments/new', views.CommentCreate.as_view(), name="comment_create"),
+    path('category/hockey/', views.PostList.as_view(), name='hockey'),
+    path('category/baseball/', views.PostList.as_view(), name='baseball'),
+    path('category/basketball/', views.PostList.as_view(), name='basketball'),
+    path('category/football/', views.PostList.as_view(), name='football'),
+    path('category/soccer/', views.PostList.as_view(), name='soccer'),
 ]

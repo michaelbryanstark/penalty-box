@@ -50,6 +50,19 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'hockey' %}">Hockey</a>
+                  <a class="dropdown-item" href="{% url 'basketball' %}">Basketball</a>
+                  <a class="dropdown-item" href="{% url 'baseball' %}">Baseball</a>
+                  <a class="dropdown-item" href="{% url 'football' %}">Football</a>
+                  <a class="dropdown-item" href="{% url 'soccer' %}">Soccer</a>
+              </li>
+              </ul>
             {% if user.is_authenticated %}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto">
