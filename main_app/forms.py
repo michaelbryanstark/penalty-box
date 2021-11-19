@@ -4,7 +4,7 @@ from .models import Post, User, Comment
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ['excerpt']
+        fields = '__all__'
         
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
@@ -12,6 +12,7 @@ class PostForm(forms.ModelForm):
             'author': forms.Select(attrs={'class': 'form-control'}),
             'status': forms.Select(attrs={'class': 'form-control'}),
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
+            'excerpt': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
         }
         
