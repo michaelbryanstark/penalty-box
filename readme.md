@@ -7,7 +7,7 @@ The Wireframes, Models, User Stories, and User flow can all be accessed here...
 [Penalty Box Designs](https://drive.google.com/drive/folders/1G-zAkFpX8eAKDwrL6YwWN_HCxGC3lSUH?usp=sharing)
 
 ## Installation
-To use this template to start your own project:
+If you would like to help further develope this blog follow the instructions below.
 
 ### Existing virtualenv
 
