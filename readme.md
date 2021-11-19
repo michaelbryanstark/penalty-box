@@ -4,7 +4,7 @@ The Penalty Box is a blog built using Python and the Django Framework! I am the 
 [The Penalty Box](https://penalty-box.herokuapp.com/)
 
 The Wireframes, Models, User Stories, and User flow can all be accessed here...
-[Penalty Box Designs](https://drive.google.com/drive/folders/1dd_nKSzl2Ov_4JQ8cn7h32e97eSosGu_?usp=sharing)
+[Penalty Box Designs](https://drive.google.com/drive/folders/1G-zAkFpX8eAKDwrL6YwWN_HCxGC3lSUH?usp=sharing)
 
 ## Installation
 To use this template to start your own project:
