@@ -2,7 +2,7 @@
 
 <style>
   .comment-box {
-      margin: auto;
+      margin: 20px;
       border: 2px solid #3398E1;
       padding: 20px; 
       min-width: 400px;
@@ -77,8 +77,8 @@
             <div class="comment-detail">
               Comment: {{ comment.description }} 
             </div>
-             
           </div>
+          <br>
           {% empty %}
           <p>No Comments yet...</p>
             {% endfor %}
