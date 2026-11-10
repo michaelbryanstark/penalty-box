@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 STATUS = (
-    (0,"Draft"),
-    (1,"Publish")
+    (0, "Draft"),
+    (1, "Publish")
 )
+
 
 class Categories(models.TextChoices):
     HOCKEY = 'hockey'
@@ -15,31 +16,33 @@ class Categories(models.TextChoices):
     FOOTBALL = 'football'
     SOCCER = 'soccer'
 
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
-    updated_on = models.DateTimeField(auto_now= True)
-    # content = models.TextField()
-    content = RichTextField(blank=True, null=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='blog_posts')
+    updated_on = models.DateTimeField(auto_now=True)
+    content = CKEditor5Field("Body", config_name="default")
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.CharField(max_length=150)
-    category = models.CharField(max_length=50, choices=Categories.choices, default=Categories.HOCKEY)
+    category = models.CharField(
+        max_length=50, choices=Categories.choices, default=Categories.HOCKEY)
 
     class Meta:
         ordering = ['-created_on']
 
     def __str__(self):
         return self.title
-# Create your models here.
+
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comment")
-    name = models.TextField(max_length=100)
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comment")
+    name = models.CharField(max_length=100)
     description = models.TextField(max_length=2000)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['-created_on']
-    
